@@ -1,12 +1,12 @@
 # Todoist
 
-TODO: Write a gem description
+Todoist API Wrapper for ruby
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'todoist'
+    gem 'todoist', github: 'chsh/todoist'
 
 And then execute:
 
@@ -15,10 +15,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install todoist
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
