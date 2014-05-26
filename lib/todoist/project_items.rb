@@ -1,5 +1,5 @@
 module Todoist
-  class ProjectItems
+  class ProjectItems < Base
     attr_reader :project
     def initialize(project)
       @project = project
@@ -12,11 +12,11 @@ module Todoist
     end
 
     def getUncompletedItems
-      get('getUncompletedItems')
+      http.get('getUncompletedItems')
     end
     # create project specific item
     def addItem(attrs)
       attrs = attrs.merge project_id: project.id
-      get('addItem', attrs)
+      http.get('addItem', attrs)
   end
 end

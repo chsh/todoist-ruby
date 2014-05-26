@@ -2,6 +2,7 @@ require 'uri'
 require 'json'
 require 'faraday'
 
+require 'todoist/http'
 require 'todoist/configuration'
 
 require 'todoist/base'

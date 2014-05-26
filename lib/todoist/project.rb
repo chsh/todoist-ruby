@@ -12,14 +12,14 @@ module Todoist
 
     # Looks like: has_many :items
     def items
-      @items ||= ProjectItems.new(self)
+      @items ||= Todoist::ProjectItems.new(self)
     end
 
     def self.getProjects
-      http_get('getProjects')
+      http.get('getProjects')
     end
-    def self.get(id)
-      http_get('getProject', project_id: id)
+    def self.getProject(id)
+      http.get('getProject', project_id: id)
     end
 
   end

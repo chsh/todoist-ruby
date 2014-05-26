@@ -1,5 +1,5 @@
 module Todoist
-  class Note
+  class Note < Base
     def initialize(attrs)
       alfter_hash attrs
     end

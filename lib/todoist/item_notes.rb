@@ -1,5 +1,5 @@
 module Todoist
-  class ItemNotes
+  class ItemNotes < Base
     attr_reader :item
     def initialize(item)
       @item = item
@@ -10,6 +10,6 @@ module Todoist
 
     def addNote(attrs)
       attrs = attrs.merge item_id: item.id
-      get('addNote', attrs)
+      http.get('addNote', attrs)
   end
 end

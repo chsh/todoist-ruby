@@ -1,5 +1,5 @@
 module Todoist
-  class Item
+  class Item < Base
     def initialize(attrs)
       alfter_hash attrs
     end
@@ -15,7 +15,7 @@ module Todoist
 
     def getItemsById(*ids)
       ids = [ids].flatten
-      get('getItemsById', ids: ids.to_json)
+      http.get('getItemsById', ids: ids.to_json)
     end
   end
 end
