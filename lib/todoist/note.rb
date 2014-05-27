@@ -3,6 +3,12 @@ class Todoist::Note < Todoist::Base
     alter_hash attrs
   end
   def item
-    @item ||= Item.get self.item_id
+    @item ||= Todoist::Item.get self.item_id
+  end
+
+  def update(attrs)
+  end
+
+  def destroy
   end
 end

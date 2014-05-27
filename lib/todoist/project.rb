@@ -6,10 +6,14 @@ class Todoist::Project < Todoist::Base
     self.getProjects.map { |attrs| new attrs }
   end
   def self.get(id)
-    Project.new getProject(id)
+    if id.to_s =~ /^\d+$/
+    elsif id.is_a?(Hash) && (id.key?(:id) || id.key?('id'))
+      id = id[:id] || id['id']
+    else raise ArgumentError.new "params should be num or {id: num}"
+    end
+    Todoist::Item.new getProject(id)
   end
 
-  # Looks like: has_many :items
   def items
     @items ||= Todoist::ProjectItems.new(self)
   end

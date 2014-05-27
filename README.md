@@ -1,6 +1,7 @@
 # Todoist
 
-Todoist API Wrapper for ruby
+Todoist API Wrapper for ruby.
+API version 2014 is supported.
 
 ## Installation
 
@@ -23,3 +24,11 @@ Or install it yourself as:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create a new Pull Request
+
+
+## Bugs (TODO)
+
+- Only some features are implemented.
+- Implement all API calls.
+- Implement Sync API calls.
+

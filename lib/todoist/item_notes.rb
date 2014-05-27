@@ -4,7 +4,7 @@ class Todoist::ItemNotes < Todoist::Base
     @item = item
   end
   def create(attrs)
-    Note.new addNote(attrs)
+    Todoist::Note.new addNote(attrs)
   end
 
   def addNote(attrs)

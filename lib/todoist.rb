@@ -3,9 +3,7 @@ require 'json'
 require 'faraday'
 
 module Todoist
-  class InvalidURIError < StandardError; end
-  class InvalidJSONPathError < StandardError; end
-  class InvalidJSONError < StandardError; end
+  class InvalidResponseError < StandardError; end
   def configure
     raise InvalidArgument.new unless block_given?
     yield(Configuration)
@@ -20,5 +18,6 @@ require 'todoist/project'
 require 'todoist/item'
 require 'todoist/note'
 require 'todoist/project_items'
+require 'todoist/item_notes'
 
 require 'todoist/version'

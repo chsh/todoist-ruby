@@ -15,7 +15,12 @@ class Todoist::HTTP
   def self.run(method, path, params = {})
     params = params.merge(token: Todoist::Configuration.token)
     response = faraday.send(method, path, params)
-    JSON.parse(response.body)
+    body = response.body
+    begin
+      JSON.parse(body)
+    rescue
+      raise Todoist::InvalidResponseError.new body
+    end
   end
   def self.build_faraday
     Faraday.new(url: Todoist::Configuration.base_url) do |builder|

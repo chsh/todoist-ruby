@@ -3,13 +3,13 @@ class Todoist::Item < Todoist::Base
     alter_hash attrs
   end
   def project
-    @project ||= Project.get self.project_id
+    @project ||= Todoist::Project.get self.project_id
   end
   def notes
-    @notes ||= ItemNotes.new self
+    @notes ||= Todoist::ItemNotes.new self
   end
   def self.get(id)
-    Item.new self.class.getItemsById(id).first
+    Todoist::Item.new getItemsById(id).first
   end
 
   def getItemsById(*ids)
