@@ -1,4 +1,2 @@
-module Todoist
-  class Label
-  end
+class Todoist::Label < Todoist::Base
 end

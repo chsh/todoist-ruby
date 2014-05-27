@@ -1,21 +1,19 @@
-module Todoist
-  class Item < Base
-    def initialize(attrs)
-      alfter_hash attrs
-    end
-    def project
-      @project ||= Project.get self.project_id
-    end
-    def notes
-      @notes ||= ItemNotes.new self
-    end
-    def self.get(id)
-      Item.new self.class.getItemsById(id).first
-    end
+class Todoist::Item < Todoist::Base
+  def initialize(attrs)
+    alter_hash attrs
+  end
+  def project
+    @project ||= Project.get self.project_id
+  end
+  def notes
+    @notes ||= ItemNotes.new self
+  end
+  def self.get(id)
+    Item.new self.class.getItemsById(id).first
+  end
 
-    def getItemsById(*ids)
-      ids = [ids].flatten
-      http.get('getItemsById', ids: ids.to_json)
-    end
+  def getItemsById(*ids)
+    ids = [ids].flatten
+    http.get('getItemsById', ids: ids.to_json)
   end
 end
