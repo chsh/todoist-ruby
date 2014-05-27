@@ -4,10 +4,10 @@ class Todoist::ProjectItems < Todoist::Base
     @project = project
   end
   def uncompleted
-    getUncompletedItems.map { |attrs| Item.new attrs }
+    getUncompletedItems.map { |attrs| Todoist::Item.new attrs }
   end
   def create(attrs)
-    Item.new addItem(attrs)
+    Todoist::Item.new addItem(attrs)
   end
 
   def getUncompletedItems
