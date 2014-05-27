@@ -1,4 +1,5 @@
 
+require 'json'
 require 'rubygems'
 require 'bundler/setup'
 require 'todoist'

@@ -3,7 +3,7 @@ class Todoist::Project < Todoist::Base
     alter_hash attrs
   end
   def self.list
-    self.getProjects.map { |attrs| Project.new attrs }
+    self.getProjects.map { |attrs| new attrs }
   end
   def self.get(id)
     Project.new getProject(id)

@@ -9,6 +9,7 @@ require 'todoist/base'
 require 'todoist/project'
 require 'todoist/item'
 require 'todoist/note'
+require 'todoist/project_items'
 
 require 'todoist/version'
 

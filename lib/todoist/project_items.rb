@@ -11,7 +11,7 @@ class Todoist::ProjectItems < Todoist::Base
   end
 
   def getUncompletedItems
-    http.get('getUncompletedItems')
+    http.get('getUncompletedItems', project_id: project.id)
   end
   # create project specific item
   def addItem(attrs)
