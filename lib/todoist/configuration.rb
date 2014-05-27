@@ -12,6 +12,7 @@ class Todoist::Configuration
     @base_url || 'https://api.todoist.com/API/'
   end
   def self.set_adapter(*args)
+    Todoist::HTTP.clear_faraday
     @default_adapter = args
   end
   def self.adapter

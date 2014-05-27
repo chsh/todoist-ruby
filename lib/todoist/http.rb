@@ -9,6 +9,9 @@ class Todoist::HTTP
   def self.faraday
     @@faraday ||= build_faraday
   end
+  def self.clear_faraday
+    @@faraday = nil
+  end
   def self.run(method, path, params = {})
     params = params.merge(token: Todoist::Configuration.token)
     response = faraday.send(method, path, params)
