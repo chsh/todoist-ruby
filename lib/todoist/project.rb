@@ -16,10 +16,10 @@ class Todoist::Project < Todoist::Base
 
   def update(attrs)
     alter_hash attrs, false
-    self.class.updateProject(self.id, attrs)
+    updateProject(self.id, attrs)
   end
   def delete
-    self.class.deleteProject(self.id)
+    deleteProject(self.id)
   end
 
   def items
@@ -32,10 +32,10 @@ class Todoist::Project < Todoist::Base
   def self.getProject(id)
     http.get('getProject', project_id: id)
   end
-  def self.updateProject(id, attrs)
+  def updateProject(id, attrs)
     http.get('updateProject', attrs.merge(project_id: id))
   end
-  def self.deleteProject(id)
+  def deleteProject(id)
     http.get('deleteProject', project_id: id)
   end
 
