@@ -7,7 +7,7 @@ API version 2014 is supported.
 
 Add this line to your application's Gemfile:
 
-    gem 'todoist-api', require: 'todoist'
+    gem 'todoist-ruby', require: 'todoist'
 
 And then execute:
 
@@ -15,7 +15,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install todoist-api
+    $ gem install todoist-ruby
 
 And then add this line to your code:
 
