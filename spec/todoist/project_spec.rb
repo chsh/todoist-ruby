@@ -18,6 +18,16 @@ describe Todoist::Project do
       stub.get("/API/getProjects?token=#{Todoist::Configuration.token}") {
         [200, {}, [@project_hash_1, @project_hash_2].to_json]
       }
+      stub.get("/API/getProject?token=#{Todoist::Configuration.token}&project_id=#{@project_hash_1[:id]}") {
+        [200, {}, @project_hash_1.to_json]
+      }
+      stub.get("/API/updateProject?token=#{Todoist::Configuration.token}&project_id=#{@project_hash_1[:id]}&color=%23cccccc") {
+        project_hash_1_after = @project_hash_1.merge color: '#cccccc'
+        [200, {}, project_hash_1_after.to_json]
+      }
+      stub.get("/API/deleteProject?token=#{Todoist::Configuration.token}&project_id=#{@project_hash_1[:id]}") {
+        [200, {}, 'ok']
+      }
     end
     Todoist::Configuration.set_adapter :test, stubs
   end
@@ -26,5 +36,16 @@ describe Todoist::Project do
         Todoist::Project.new(@project_hash_1),
         Todoist::Project.new(@project_hash_2)
     ]
+  end
+  it 'should get single project, update and delete it' do
+    # get
+    project = Todoist::Project.get id: 1000100
+    expect(project) == Todoist::Project.new(@project_hash_1)
+    # update
+    expect(project.color) == '#dddddd'
+    project.update color: '#cccccc'
+    expect(project.color) == '#cccccc'
+    # delete
+    expect(project.delete) == 'ok'
   end
 end

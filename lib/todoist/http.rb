@@ -16,6 +16,7 @@ class Todoist::HTTP
     params = params.merge(token: Todoist::Configuration.token)
     response = faraday.send(method, path, params)
     body = response.body
+    return 'ok' if body == 'ok'
     begin
       JSON.parse(body)
     rescue
