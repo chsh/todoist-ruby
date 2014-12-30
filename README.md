@@ -25,13 +25,13 @@ And then add this line to your code:
 ### Configure access token
 This step has to be executed before you do any interaction with Todoist API
 
-```
+```ruby
 [13] pry(main)> Todoist::Configuration.token = 'e6705ab0SECRETTOKENcfbcc1b'
 => "e6705ab0SECRETTOKENcfbcc1b"
 ```
 
 ### List your projects
-```
+```ruby
 
 [14] pry(main)> Todoist::Project::getProjects
 => [{"last_updated"=>"",
@@ -65,7 +65,7 @@ This step has to be executed before you do any interaction with Todoist API
 ```
 ### List items in a specific project
 
-```
+```ruby
 [14] pry(main)> project = Todoist::Project.get 13464256
 [15] pry(main)> project.items.uncompleted.each { |item| puts "* #{item.content}" } 
 * get powers
